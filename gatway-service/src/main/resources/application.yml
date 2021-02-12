@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gatway-service
+  cloud:
+    gateway:
+      routes:
+        - id : r1
+          uri : http://localhost:8081/
+          predicates :
+            - Path= /clients/**
+        - id : r2
+          uri : http://localhost:8082/
+          predicates :
+            - Path= /products/**
+      discovery:
+        enabled: True
+      server:
+        port: 8888
+        
+        
